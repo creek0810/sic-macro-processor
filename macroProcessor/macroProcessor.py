@@ -10,7 +10,6 @@ class MacroProcessor:
         split_data = cur_line.split()
         return len(split_data) >= 2 and split_data[1] == "MACRO"
 
-
     # return name of current macro call
     def _parse_name(self, cur_line):
         split_data = cur_line.split()
@@ -18,7 +17,6 @@ class MacroProcessor:
             split_data[0] if split_data[0] in self.def_table else split_data[1]
         )
 
-    #  TODO: finish here
     def _is_macro_call(self, cur_line):
         split_data = cur_line.split()
 
@@ -42,7 +40,6 @@ class MacroProcessor:
         split_data = cur_line.strip().replace(",", " ").split()
         start = split_data.index(macro_name) + 1
         return split_data[start:]
-
 
     def _expand_macro(self, lines, i):
         cur_line = lines[i]
@@ -76,7 +73,6 @@ class MacroProcessor:
                 print(cur_line)
                 i += 1
 
-
     def _define_macro(self, lines, i):
         macro_body = []
         macro_name = lines[i].split()[0]
@@ -106,7 +102,7 @@ class MacroProcessor:
         self.def_table[macro_name] = {
             "arg": macro_arg,
             # delete last MEND instruction
-            "body": macro_body[:-1]
+            "body": macro_body[:-1],
         }
         # return cur line num
         return i
