@@ -1,0 +1,8 @@
+MM      START   0
+FIRST   LDA     THREE
+.MACROX
+.RDBUFF FIVE
+        LDA     FIVE
+THREE   WORD    3
+FIVE    WORD    5
+        END     FIRST
